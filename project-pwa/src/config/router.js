@@ -10,10 +10,12 @@ import {
 import Login from '../screens/login';
 import Home from '../screens/home';
 import PrivateRoute from '../utils/privateRoute'
+import NavMenu from '../screens/navMenu';
 
 const Routes = () => {
     return(
         <Router>
+            <NavMenu></NavMenu>
             <Switch>
                 <Route exact path="/" component={Login}></Route>
                 <PrivateRoute path="/home" component={Home}></PrivateRoute>
