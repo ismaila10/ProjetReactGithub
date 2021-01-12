@@ -26,7 +26,12 @@ const submit = (e, formState, setErrorMessage, history) => {
 
 
 const Login = ({history}) => {
-    
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(token){
+            history.push('/home');
+        }
+    }, [])
     return(
         <LoginContainer>
             <SignIn submit={submit}></SignIn>
