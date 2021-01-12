@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {
     Route,
@@ -16,6 +16,7 @@ const Routes = () => {
     return(
         <Router>
             <NavMenu></NavMenu>
+            
             <Switch>
                 <Route exact path="/" component={Login}></Route>
                 <PrivateRoute path="/home" component={Home}></PrivateRoute>

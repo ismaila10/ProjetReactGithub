@@ -15,7 +15,7 @@ const SignIn = ({submit}) => {
             <SignSpan> Sign in to GitHub</SignSpan>
             <SignInInput placeholder="Username" onChange={e => setFormState({ ...formState, username: e.target.value})} type="text"></SignInInput>
             <SignInInput placeholder="Password" onChange={e => setFormState({ ...formState, password: e.target.value})} type="password"></SignInInput>
-            <SignSpan>{errorMessage}</SignSpan>
+            <span>{errorMessage}</span>
             <SignInInput type="submit"></SignInInput>
         </SignInForm>
     );

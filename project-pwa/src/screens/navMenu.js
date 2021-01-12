@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 const NavMenu = props => {
     const history = useHistory();
+    const isToken = localStorage.getItem('token');
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -13,10 +14,22 @@ const NavMenu = props => {
 
     return(
         <NavMenuContainer>
-            <Link to="/home"> Home </Link>
+            
+            {isToken ? (
+                <div>
+                    <Link to="/home"> Home </Link>
+                    <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+                </div>
+            ) : null}
+            
         </NavMenuContainer>
     );
 };
+
+const LogoutButton = styled.button `
+    padding: 12px;
+    background-color: green;
+`
 
 const NavMenuContainer = styled.div`
     background-color: ${props => props.theme.menu};
