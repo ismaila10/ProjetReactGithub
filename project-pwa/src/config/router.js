@@ -9,13 +9,14 @@ import {
 
 import Login from '../screens/login';
 import Home from '../screens/home';
+import PrivateRoute from '../utils/privateRoute'
 
 const Routes = () => {
     return(
         <Router>
             <Switch>
                 <Route exact path="/" component={Login}></Route>
-                <Route path="/home" component={Home}></Route>
+                <PrivateRoute path="/home" component={Home}></PrivateRoute>
                 <Redirect to="/"></Redirect>
             </Switch>
         </Router>
