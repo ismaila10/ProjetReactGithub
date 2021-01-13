@@ -29,7 +29,7 @@ const Home = () => {
     return(
         <HomeContainer>
             <div>
-                <h1> { title } </h1> <button>Créer</button>
+                <h1> { title } <button>+</button> </h1> 
                 <ul>
                     {repos.map((repo) => (
                        <Repository details={repo} onDelete={handleDelete}></Repository>

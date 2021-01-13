@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import Logo from '../logo';
+import ButtonSubmit from '../button';
 
 const SignIn = ({submit}) => {
     const [formState, setFormState] = useState({username:'', password:''});
@@ -18,8 +19,9 @@ const SignIn = ({submit}) => {
                     <SignInInput placeholder="Username" onChange={e => setFormState({ ...formState, username: e.target.value})} type="text"></SignInInput>
                     <SignInInput placeholder="Password" onChange={e => setFormState({ ...formState, password: e.target.value})} type="password"></SignInInput>
                     <span>{errorMessage}</span>
-                    <SignInInputButton type="submit"></SignInInputButton>
+                    <ButtonSubmit name="Valider"></ButtonSubmit>
                 </SignInBody>
+                <SignSpan>Welcome to your account</SignSpan>
                 
             </SignInForm>
         </FormContainer>
@@ -69,16 +71,6 @@ const SignInInput = styled.input `
     background-color: rgb(232, 240, 254);
 `
 
-const SignInInputButton = styled.input `
-    font-family: inherit;
-    margin: 9px 0px;
-    height: 30px;
-    width: 250px;
-    border: none;
-    border-radius: 10px;
-    background-color: #2ea44f;
-    color: #fff
-`
 
 const SignSpan = styled.span `
     font-size: 25px;
