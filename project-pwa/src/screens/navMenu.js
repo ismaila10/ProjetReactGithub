@@ -22,9 +22,8 @@ const NavMenu = () => {
                 <Link to="/home"> <Logo url={url} alt="Logo"></Logo> </Link>
                 {isToken ? (
                     <Logout handleClick={onClick}></Logout>
-                ) : (//Normalement ne pas afficher le composant mais ne se fait pas sans refresh malgrés la state
-                    <Logout handleClick={onClick}></Logout>
-                    )}
+                )//Ne s'affiche qu'aprés refresh de la page (apres auth) malgrés le state comme je vous avais montré
+                 : null}
                 
             </div> 
         </NavMenuContainer>
