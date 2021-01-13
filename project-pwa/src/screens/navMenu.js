@@ -22,7 +22,9 @@ const NavMenu = () => {
                 <Link to="/home"> <Logo url={url} alt="Logo"></Logo> </Link>
                 {isToken ? (
                     <Logout handleClick={onClick}></Logout>
-                ) : null}
+                ) : (//Normalement ne pas afficher le composant mais ne se fait pas sans refresh malgrés la state
+                    <Logout handleClick={onClick}></Logout>
+                    )}
                 
             </div> 
         </NavMenuContainer>
