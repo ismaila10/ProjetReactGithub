@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import Logout from '../components/Logout';
 
-const NavMenu = props => {
-    const history = useHistory();
+const NavMenu = () => {
+    //const history = useHistory();
     const isToken = localStorage.getItem('token');
 
     const handleLogout = () => {
-        localStorage.removeItem('token');
-        history.push('/')
+        
     }
 
     return(
@@ -18,7 +17,7 @@ const NavMenu = props => {
             {isToken ? (
                 <div>
                     <Link to="/home"> Home </Link>
-                    <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+                    <Logout></Logout>
                 </div>
             ) : null}
             
@@ -26,15 +25,7 @@ const NavMenu = props => {
     );
 };
 
-const LogoutButton = styled.button `
-    font-size: 1em;
-    margin-right: 1em;
-    padding: 0.25em 1em;
-    border-radius: 3px;
-    color: red;
-    background-color: transparent;
-    float: right
-`
+
 
 const NavMenuContainer = styled.div`
     background-color: ${props => props.theme.menu};
