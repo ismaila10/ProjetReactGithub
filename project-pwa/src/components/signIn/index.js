@@ -3,25 +3,25 @@ import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import Logo from '../logo';
 import ButtonSubmit from '../button';
+import url from '../../assets/logo.png';
 
 const SignIn = ({submit}) => {
     const [formState, setFormState] = useState({username:'', password:''});
     const [errorMessage, setErrorMessage] = useState('');
     const history = useHistory();
-    const url = "../../assets/logo.png"
   
     return(
         <FormContainer>
             <SignInForm onSubmit={(e) =>submit(e, formState, setErrorMessage, history)}>
-                <Logo url={url}></Logo>
-                <SignSpan> Sign in to GitHub</SignSpan>
+                <Logo url={url} alt="Logo"></Logo>
+                <SignTitle> Sign in to GitHub</SignTitle>
                 <SignInBody>
                     <SignInInput placeholder="Username" onChange={e => setFormState({ ...formState, username: e.target.value})} type="text"></SignInInput>
                     <SignInInput placeholder="Password" onChange={e => setFormState({ ...formState, password: e.target.value})} type="password"></SignInInput>
-                    <span>{errorMessage}</span>
-                    <ButtonSubmit name="Valider"></ButtonSubmit>
+                    <SignInSpan>{errorMessage}</SignInSpan>
+                    <ButtonSubmit name="Sign in"></ButtonSubmit>
                 </SignInBody>
-                <SignSpan>Welcome to your account</SignSpan>
+                <SignInp>Welcome to your account</SignInp>
                 
             </SignInForm>
         </FormContainer>
@@ -34,6 +34,8 @@ const FormContainer = styled.div `
     font-size: 14px;
     width: 340px;
     margin: 0 auto;
+    margin-top: 5%;
+    border-radius: 8px;
     background-color: #f6f8fa;
     border: 1px solid #eaecef;
     box-sizing: border-box;
@@ -48,6 +50,15 @@ const SignInForm = styled.form `
     flex-direction: column;
     align-items: center;
     justify-content: center;
+`
+
+const SignInp = styled.p `
+    font-weight: bold;
+`
+
+const SignInSpan = styled.span `
+    font-weight: bold;
+    color: red;
 `
 
 const SignInBody = styled.div `
@@ -69,12 +80,15 @@ const SignInInput = styled.input `
     outline: none;
     border: none;
     background-color: rgb(232, 240, 254);
+    padding: 5px;
 `
 
 
-const SignSpan = styled.span `
-    font-size: 25px;
-    margin: 10% 0% 10% 0%
+const SignTitle = styled.div `
+    margin: 10% 0% 10% 0%;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: -.5px;
 `
 
 export default SignIn;

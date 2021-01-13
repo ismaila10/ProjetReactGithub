@@ -1,5 +1,5 @@
 const theme = {
-    primary: 'silver',
+    primary: '#fff',
     menu: '#282c34'
 }
 

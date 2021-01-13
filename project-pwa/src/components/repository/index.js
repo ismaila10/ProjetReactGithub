@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components'
-import RepositoryForm from '../repositoryForm';
+import url from '../../assets/delete.png'
+import Logo from '../logo';
 
 const Repository = ({ details, onDelete }) => {
     return(
         <RepositoryContainer>
             <li>
-                {details.name} : {details.describe} <Button onClick={() => onDelete(details.id)}>X</Button>
+                <RepositorySpan>{details.name}</RepositorySpan> : " {details.describe} " <Button onClick={() => onDelete(details.id)}><Logo width="35px" url={url}></Logo></Button>
             </li>
         </RepositoryContainer>
     )
@@ -15,12 +16,16 @@ const Repository = ({ details, onDelete }) => {
 
 const RepositoryContainer = styled.div `
     text-align: center;
+    padding: 8px;
+`
+
+const RepositorySpan = styled.span `
+    font-weight: bold;
 `
 
 const Button = styled.button `
     border: none;
-    color: red;
-    margin-left: 5px;
+    background-color: transparent;
 `
 
 export default Repository

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import ButtonSubmit from '../button';
 
 const RepositoryForm = ({ onRepositoryAdd }) =>{
@@ -25,7 +25,7 @@ const RepositoryForm = ({ onRepositoryAdd }) =>{
     return (
         <FormRepo onSubmit={handleSubmit}>
             <div>
-                <h2> Nouveau Repository</h2>
+                <h2> Ajouter Repository</h2>
                 <FormInput 
                     value={nouveauRepo.name}
                     onChange={e => setNouveauRepo({ ...nouveauRepo, name: e.target.value})}
@@ -49,7 +49,7 @@ const RepositoryForm = ({ onRepositoryAdd }) =>{
 
 const FormRepo = styled.form `
     text-align: center;
-    border: 1px solid;
+    border: 1px solid silver;
     border-radius: 5px;
     width: 340px;
     display: block;
@@ -57,6 +57,7 @@ const FormRepo = styled.form `
     margin: 0 auto;
     padding-bottom: 3%;
     float: center;
+    background-color: #f6f8fa;
 `
 
 const FormInput = styled.input `

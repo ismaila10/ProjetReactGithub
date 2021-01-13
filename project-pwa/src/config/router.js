@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {
     Route,
@@ -13,10 +13,14 @@ import PrivateRoute from '../utils/privateRoute'
 import NavMenu from '../screens/navMenu';
 
 const Routes = () => {
+    const token = localStorage.getItem('token')
+    const [isToken, setToken] = useState(token ? token : null); 
     return(
         <Router>
-            <NavMenu></NavMenu>
-            
+            {isToken ? (
+                <NavMenu></NavMenu>
+            ) : null}
+
             <Switch>
                 <Route exact path="/" component={Login}></Route>
                 <PrivateRoute path="/home" component={Home}></PrivateRoute>

@@ -13,7 +13,8 @@ const SubmitButton = styled.button `
     border: none;
     border-radius: 10px;
     background-color: #2ea44f;
-    color: #fff
+    color: #fff;
+    font-weight: bold;
 `
 
 export default ButtonSubmit;
