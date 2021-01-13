@@ -27,8 +27,13 @@ const NavMenu = props => {
 };
 
 const LogoutButton = styled.button `
-    padding: 12px;
-    background-color: green;
+    font-size: 1em;
+    margin-right: 1em;
+    padding: 0.25em 1em;
+    border-radius: 3px;
+    color: red;
+    background-color: transparent;
+    float: right
 `
 
 const NavMenuContainer = styled.div`
