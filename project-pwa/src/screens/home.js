@@ -10,6 +10,7 @@ const Home = () => {
         { id: 1, name: "ReactProject", describe: "This is my first react project"},
         { id: 2, name: "APIDotNetCore", describe: "Net Core Framework API"}
     ]);
+    const [visible, setVisible] = useState(false);
     const title = "Repositories";
 
     const handleDelete = (id) => {
@@ -21,23 +22,31 @@ const Home = () => {
         setRepos(updatedRepos);
     }
 
+    const handleClick = () => {
+        setVisible(true);
+    }
+
     const handleAdd = (repo) => {
         const createdRepos = [...repos];
         createdRepos.push(repo);
 
         setRepos(createdRepos);
+        setVisible(false);
     }
 
     return(
         <HomeContainer>
             <div>
-                <h1> { title } <ButtonContainer><Logo url={url} width="45px" alt="Ajout"></Logo></ButtonContainer></h1> 
-                <p>
+                <h1> { title } <ButtonContainer onClick={handleClick}><Logo url={url} width="45px" alt="Ajout"></Logo></ButtonContainer></h1> 
+                <div>
                     {repos.map((repo) => (
-                       <Repository details={repo} onDelete={handleDelete}></Repository>
+                       <Repository key={repo.id} details={repo} onDelete={handleDelete}></Repository>
                     ))}
-                </p>
-                <RepositoryForm onRepositoryAdd={handleAdd}></RepositoryForm>
+                </div>
+                {visible ? (
+                    <RepositoryForm onRepositoryAdd={handleAdd}></RepositoryForm>
+                 ) : ""}
+                
             </div>
             
         </HomeContainer>

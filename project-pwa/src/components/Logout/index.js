@@ -1,14 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom';
 
-const Logout = ({handleLogout}) => {
-    const history = useHistory();
-    const handleClick= () => {
-        localStorage.removeItem('token');
-        history.push('/')
-    }
-
+const Logout = ({handleClick}) => {
     return(
         <LogoutButton onClick={handleClick}>
             Logout

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import Logo from '../logo';
 import ButtonSubmit from '../button';
 import url from '../../assets/logo.png';
+import ErrorMessage from '../errorMessage';
 
 const SignIn = ({submit}) => {
     const [formState, setFormState] = useState({username:'', password:''});
@@ -18,7 +19,7 @@ const SignIn = ({submit}) => {
                 <SignInBody>
                     <SignInInput placeholder="Username" onChange={e => setFormState({ ...formState, username: e.target.value})} type="text"></SignInInput>
                     <SignInInput placeholder="Password" onChange={e => setFormState({ ...formState, password: e.target.value})} type="password"></SignInInput>
-                    <SignInSpan>{errorMessage}</SignInSpan>
+                    <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
                     <ButtonSubmit name="Sign in"></ButtonSubmit>
                 </SignInBody>
                 <SignInp>Welcome to your account</SignInp>
@@ -54,11 +55,6 @@ const SignInForm = styled.form `
 
 const SignInp = styled.p `
     font-weight: bold;
-`
-
-const SignInSpan = styled.span `
-    font-weight: bold;
-    color: red;
 `
 
 const SignInBody = styled.div `

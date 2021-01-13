@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import ButtonSubmit from '../button';
+import ErrorMessage from '../errorMessage';
 
 const RepositoryForm = ({ onRepositoryAdd }) =>{
     const [nouveauRepo, setNouveauRepo] = useState({name: '', describe: ''})
@@ -41,8 +42,8 @@ const RepositoryForm = ({ onRepositoryAdd }) =>{
                     placeholder="Description"
                 />
             </div>
-            <span>{errorMessage}</span>
-          <ButtonSubmit name="Ajouter" taille></ButtonSubmit>
+            <ErrorMessage errorMessage={errorMessage}></ErrorMessage>
+          <ButtonSubmit name="Ajouter" width="175px"></ButtonSubmit>
         </FormRepo>
     )
 };

@@ -31,7 +31,7 @@ const Login = ({history}) => {
         if(token){
             history.push('/home');
         }
-    }, [])
+    }, [history])
     return(
         <LoginContainer>
             <SignIn submit={submit}></SignIn>
